@@ -1,0 +1,26 @@
+<!-- views/searchUser.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm kiếm người dùng</title>
+</head>
+<body>
+    <h1>Tìm kiếm người dùng</h1>
+    <form action="/users/search" method="get">
+        <label for="name">Nhập tên người dùng:</label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit">Tìm kiếm</button>
+    </form>
+
+    <% if (user) { %>
+        <h2>Thông tin người dùng:</h2>
+        <p>Tên người dùng: <%= user.username %></p>
+        <p>Email: <%= user.email %></p>
+        <p>Ngày sinh: <%= user.dob %></p>
+    <% } else if (error) { %>
+        <h2><%= error %></h2>
+    <% } %>
+</body>
+</html>
